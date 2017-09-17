@@ -11,6 +11,7 @@ In this project we will detect lane lines in images using Python and OpenCV.
 
 ![Predicted lane](https://github.com/MehdiAB161/Self-Driving-Car-Nanodegree/blob/LaneP1/CarND-LaneLines-P1/output_images/solidYellowCurve.jpg?raw=true "Predicted lane")
 
+Video link : 
 <a href="https://youtu.be/yie5K0BM1fs
 " target="_blank"><img src="http://img.youtube.com/vi/yie5K0BM1fs/0.jpg"
 alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
