@@ -1,4 +1,4 @@
-# **Finding Lane Lines on the Road** 
+# **Finding Lane Lines on the Road**
 [![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
 
 Overview
@@ -9,10 +9,11 @@ When we drive, we use our eyes to decide where to go.  The lines on the road tha
 In this project you will detect lane lines in images using Python and OpenCV.  OpenCV means "Open-Source Computer Vision", which is a package that has many useful tools for analyzing images.  
 [//]: # (Image References)
 
-[image1]: ./output_images/whiteCarLaneSwitch.jpg "Predicted lane"
+
+![Predicted lane](https://github.com/MehdiAB161/Self-Driving-Car-Nanodegree/blob/LaneP1/CarND-LaneLines-P1/output_images/solidYellowCurve.jpg?raw=true "Predicted lane")
 
 <a href="https://youtu.be/yie5K0BM1fs
-" target="_blank"><img src="http://img.youtube.com/vi/yie5K0BM1fs/0.jpg" 
+" target="_blank"><img src="http://img.youtube.com/vi/yie5K0BM1fs/0.jpg"
 alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
 
@@ -32,21 +33,20 @@ In order to draw a single line on the left and right lanes, I coded the full_lan
 1. Extracts both sides of the lane
 2. For each side, uses the average slope between the uppermost and lowest points to draw a line
 
-If you'd like to include images to show how the pipeline works, here is how to include an image: 
 
-[image2]: ./output_images/solidYellowCurve2.jpg "Original Image"
+![0: Original Image](https://github.com/MehdiAB161/Self-Driving-Car-Nanodegree/blob/LaneP1/CarND-LaneLines-P1/test_images/solidYellowCurve2.jpg?raw=true "0: Original Image")
 
-[image3]: ./output_images/gray_image.jpg "Grayscale"
+![Grayscale](https://github.com/MehdiAB161/Self-Driving-Car-Nanodegree/blob/LaneP1/CarND-LaneLines-P1/output_images/gray_image.jpg?raw=true "Grayscale")
 
-[image4]: ./output_images/canny_image.jpg "Canny transform"
+![Canny transform](https://github.com/MehdiAB161/Self-Driving-Car-Nanodegree/blob/LaneP1/CarND-LaneLines-P1/output_images/canny_image.jpg?raw=true "Canny transform")
 
-[image5]: ./output_images/blurred_imgae.jpg "Gaussian blur"
+![Gaussian blur](https://github.com/MehdiAB161/Self-Driving-Car-Nanodegree/blob/LaneP1/CarND-LaneLines-P1/output_images/blurred_image.jpg?raw=true "Gaussian blur")
 
-[image6]: ./output_images/interesting_image.jpg "Region of interest"
+![Region of interest](https://github.com/MehdiAB161/Self-Driving-Car-Nanodegree/blob/LaneP1/CarND-LaneLines-P1/output_images/interesting_image.jpg?raw=true "Region of interest")
 
-[image7]: ./output_images/lined_image.jpg "Segments detection with hough transform"
+![Segments detection with hough transform](https://github.com/MehdiAB161/Self-Driving-Car-Nanodegree/blob/LaneP1/CarND-LaneLines-P1/output_images/lined_image.jpg?raw=true "Segments detection with hough transform")
 
-[image8]: ./output_images/solidYellowCurve2.jpg "Extrapolation"
+![Extrapolation](https://github.com/MehdiAB161/Self-Driving-Car-Nanodegree/blob/LaneP1/CarND-LaneLines-P1/output_images/solidYellowCurve.jpg?raw=true "Extrapolation")
 
 
 ### 2. Potential shortcomings with the current pipeline
@@ -60,4 +60,3 @@ Some shortcomings of the current method :
 Some possible improvements of the current method :
 1. For the first shortcoming, extrapolating between every segment
 2. Using the information that the car is in the process of overtaking, and using other parameters tuned for this specific case
-
