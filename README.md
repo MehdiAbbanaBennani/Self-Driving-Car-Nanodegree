@@ -10,6 +10,7 @@ This repository contains my solutions for the projects of the Self Driving Car N
 There are three terms in the Nanodegree, and each term contains several projects.
 1. Computer Vision and Deep Learning :
    * Finding lane lines
+   * LeNet implementation with Tensorflow
    * Traffic Sign Classifier
    * Behavioral Cloning
    * Advanced Lane Finding
