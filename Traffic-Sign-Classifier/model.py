@@ -91,13 +91,13 @@ model.add(Dense(units=120))
 model.add(Activation('relu'))
 model.add(Dense(units=84))
 model.add(Activation('relu'))
-model.add(Dense(units=1))
-# model.add(Lambda(lambda x: np.sign(x) * np.max(abs(x), 90)))
+model.add(Dense(units=num_classes))
+model.add(Activation('softmax'))
 
 # Model training
-model.compile(loss='mean_squared_error',
+model.compile(loss='categorical_crossentropy',
               optimizer='Adam',
-              metrics=['mae'])
+              metrics=['accuracy'])
 
 # Visualize training
 now = strftime("%c")
@@ -122,12 +122,12 @@ else :
               validation_data=(x_valid, y_valid),
               shuffle=True)
 
-# Model fit
+# Model evaluate
 
 loss_and_metrics = model.evaluate(x_valid, y_valid, batch_size=batch_size, verbose=0)
-print("valid_mae" + str(loss_and_metrics))
+print("valid_accuracy" + str(loss_and_metrics))
 loss_and_metrics = model.evaluate(x_test, y_test, batch_size=batch_size, verbose=0)
-print("test_mae" + str(loss_and_metrics))
+print("test_accuracy" + str(loss_and_metrics))
 
 model_json = model.to_json()
 with open("logs/" + now.format(time()) + "/model.json", "w") as json_file:
