@@ -122,7 +122,7 @@ Here are five German traffic signs that I found on the web:
 
 The images all centered and clear, except the images 4 and 5, which are noisy. The difficulty might come from the shapes around the images, which could impact the classifier.
 
-####2. Discussing the prediction
+#### 2. Discussing the prediction
 
 Here are the results of the prediction:
 
@@ -139,7 +139,7 @@ The model was able to correctly guess 3 of the 5 traffic signs, which correspond
 
 The contrast of the sign "Turn left" is very similar to "Stop", which could have missled the classifier.
 
-####3. Top 5 softmax probabilities
+#### 3. Top 5 softmax probabilities
 
 
 For the first image, the model is sure that this is a No entry sign (probability of 1), and the image does contain a No entry sign. The top five soft max probabilities were
