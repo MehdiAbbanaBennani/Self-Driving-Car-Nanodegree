@@ -32,7 +32,7 @@ You're reading it! and here is a link to my [project code](https://github.com/Me
 
 ###Data Set Summary & Exploration
 
-####1. Provide a basic summary of the data set. In the code, the analysis should be done using python, numpy and/or pandas methods rather than hardcoding results manually.
+####1. Provide a basic summary of the data set
 
 I used the pandas library to calculate summary statistics of the traffic
 signs data set:
@@ -47,15 +47,15 @@ signs data set:
 
 Here is an exploratory visualization of the data set. It is a bar chart showing the label counts. The dataset is unbalanced, which might biais the prediction.
 
-![Train set labels distribution](https://raw.githubusercontent.com/MehdiAB161/Self-Driving-Car-Nanodegree/master/Traffic-Sign-Classifier/doc_images/train-labels-distribution.png)
+![Train set labels distribution](https://raw.githubusercontent.com/MehdiAB161/Self-Driving-Car-Nanodegree/Behavioral-Cloning/Traffic-Sign-Classifier/doc_images/train-labels-distribution.png)
 
 The following figure shows the distribution of the pixels for the initial train set :
 
-![Train set pixels distribution](https://raw.githubusercontent.com/MehdiAB161/Self-Driving-Car-Nanodegree/master/Traffic-Sign-Classifier/doc_images/train-pixel-distribution.png)
+![Train set pixels distribution](https://raw.githubusercontent.com/MehdiAB161/Self-Driving-Car-Nanodegree/Behavioral-Cloning/Traffic-Sign-Classifier/doc_images/train-pixel-distribution.png)
 
 ###Design and Test a Model Architecture
 
-####1. Describe how you preprocessed the image data. What techniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, and provide example images of the additional data. Then describe the characteristics of the augmented training set like number of images in the set, number of images for each class, etc.)
+####1. Image Preprocessing
 
 As a first step, I decided to generate additional images using rotations and noise blurring, in order to rebalance the train set. Later, I realized that the increase in the performance was not significant and I considered only the initial data.
 
@@ -63,7 +63,7 @@ As a last step, I normalized the image data because the learning speed increases
 
 The following figure shows the distribution of the pixels for the normalized train set.
 
-![Normalized train set pixels distribution](https://raw.githubusercontent.com/MehdiAB161/Self-Driving-Car-Nanodegree/master/Traffic-Sign-Classifier/doc_images/train-normaliszed-pixels-distribution.png)
+![Normalized train set pixels distribution](https://raw.githubusercontent.com/MehdiAB161/Self-Driving-Car-Nanodegree/Behavioral-Cloning/Traffic-Sign-Classifier/doc_images/train-normaliszed-pixels-distribution.png)
 
 
 ####2. Model description
@@ -93,14 +93,14 @@ It is very similar to the LeNet neural network. The differences are :
 
 To train the model, I used the Adam Optimizer. The model ran 50 epochs.
 
-####4.
+####4. Model selection
 I considered several neural networks architectures, mostly inspired from LeNet architecture. I tried adding several dropout layers, adding an additional convolutional layer, changing the size of the layers.
 
 I also considered learning rate decay, and other optimization algorithms. I also tested several sets of parameters.
 
 Dropout helps achieving a better generalization performance.
 
-Since all the pictures represent traffic signs, the class of necessary features for the classification is smaller than the needed class for more complex problems which involve very different object. Therefore, I think a shallow neural network is enough for the discrimination. However, since there are 43 classes, the classification quality improved when I considered wider fully connected layers in comparaison with the LeNet layers. The reason is that LeNet was designed for MNIST which only contains 10 classes.
+Since all the pictures represent traffic signs, the class of necessary features for the classification is smaller than the needed class for more complex problems which involve very different object. Therefore, I think a shallow neural network is enough for the discrimination. However, since there are 43 classes, the classification quality improved when I considered wider fully connected layers in comparison with the LeNet layers. The reason is that LeNet was designed for MNIST which only contains 10 classes.
 
 My final model results were:
 * training set accuracy of 1
@@ -114,10 +114,13 @@ My final model results were:
 ####1. Five German traffic signs images from the web
 Here are five German traffic signs that I found on the web:
 
-![alt text][image4] ![alt text][image5] ![alt text][image6]
-![alt text][image7] ![alt text][image8]
+![image1](https://raw.githubusercontent.com/MehdiAB161/Self-Driving-Car-Nanodegree/master/Traffic-Sign-Classifier/german_traffic_signs/1.png)
+![image2](https://raw.githubusercontent.com/MehdiAB161/Self-Driving-Car-Nanodegree/master/Traffic-Sign-Classifier/german_traffic_signs/2.png)
+![image3](https://raw.githubusercontent.com/MehdiAB161/Self-Driving-Car-Nanodegree/master/Traffic-Sign-Classifier/german_traffic_signs/3.png)
+![image4](https://raw.githubusercontent.com/MehdiAB161/Self-Driving-Car-Nanodegree/master/Traffic-Sign-Classifier/german_traffic_signs/4.png)
+![image5](https://raw.githubusercontent.com/MehdiAB161/Self-Driving-Car-Nanodegree/master/Traffic-Sign-Classifier/german_traffic_signs/5.png)
 
-The images all centered and clear, exvept the images 4 and 5, which are noisy. The difficulty might come from the shapes around the images, which could impact the classifier.
+The images all centered and clear, except the images 4 and 5, which are noisy. The difficulty might come from the shapes around the images, which could impact the classifier.
 
 ####2. Discussing the prediction
 
@@ -134,12 +137,12 @@ Here are the results of the prediction:
 
 The model was able to correctly guess 3 of the 5 traffic signs, which corresponds to an accuracy of 60%. On the other hand, the accuracy over the test set was 0.95, we expected a prediction accuracy of 0.8 or 1. But since the sample of new images is very small, it is a very noisy estimate.
 
-The contrast of the sign "Turn left" is very similar to "Turn left", which could misslead the classifier.
+The contrast of the sign "Turn left" is very similar to "Stop", which could have missled the classifier.
 
 ####3. Top 5 softmax probabilities
 
 
-For the first image, the model is sure that this is a No entry sign (probability of 0.6), and the image does contain a No entry sign. The top five soft max probabilities were
+For the first image, the model is sure that this is a No entry sign (probability of 1), and the image does contain a No entry sign. The top five soft max probabilities were
 
 | Probability         	|     Prediction	        					|
 |:---------------------:|:---------------------------------------------:|
@@ -150,7 +153,7 @@ For the first image, the model is sure that this is a No entry sign (probability
 | .00				    | Beware of ice/snow         					|
 
 
-For the second image, the model is sure that this is a Keep right sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
+For the second image, the model is sure that this is a Keep right sign (probability of 1), and the image does contain a stop sign. The top five soft max probabilities were
 
 | Probability         	|     Prediction	        					|
 |:---------------------:|:---------------------------------------------:|
@@ -160,7 +163,7 @@ For the second image, the model is sure that this is a Keep right sign (probabil
 | .00	      			| Stop					 			        	|
 | .00				    | Priority road      							|
 
-For the third image, the model is relatively sure that this is a Turn left sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
+For the third image, the model is relatively sure that this is a Stop sign (probability of 0.77), and the image does contain a Turn left sign. The top five soft max probabilities were
 
 | Probability         	|     Prediction	        					|
 |:---------------------:|:---------------------------------------------:|
@@ -170,7 +173,7 @@ For the third image, the model is relatively sure that this is a Turn left sign 
 | .00	      			| Priority road					 				|
 | .00				    | Speed limit (80km/h)      					|
 
-For the fourth image, the model is sure that this is a Speed limit (60km/h) sign (probability of 0.6), and the image does contain a Speed limit (60km/h). The top five soft max probabilities were
+For the fourth image, the model is sure that this is a Speed limit (60km/h) sign (probability of 1), and the image does contain a Speed limit (60km/h). The top five soft max probabilities were
 
 | Probability         	|     Prediction	        					|
 |:---------------------:|:---------------------------------------------:|
@@ -180,7 +183,7 @@ For the fourth image, the model is sure that this is a Speed limit (60km/h) sign
 | .00	      			| No vehicles					 				|
 | .00				    | End of all speed and passing limits			|
 
-For the fifth image, the model is sure that this is a Yield sign (probability of 0.6), and the image does contain a Yield sign. The top five soft max probabilities were
+For the fifth image, the model is sure that this is a Yield sign (probability of 1), and the image does contain a Yield sign. The top five soft max probabilities were
 
 | Probability         	|     Prediction	        					|
 |:---------------------:|:---------------------------------------------:|
