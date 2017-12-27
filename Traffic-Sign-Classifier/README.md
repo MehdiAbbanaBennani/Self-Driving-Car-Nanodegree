@@ -1,4 +1,4 @@
-#**Traffic Sign Recognition** 
+#**Traffic Sign Recognition**
 
 
 **Build a Traffic Sign Recognition Project**
@@ -14,14 +14,11 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/visualization.jpg "Visualization"
-[image2]: ./examples/grayscale.jpg "Grayscaling"
-[image3]: ./examples/random_noise.jpg "Random Noise"
-[image4]: ./examples/placeholder.png "Traffic Sign 1"
-[image5]: ./examples/placeholder.png "Traffic Sign 2"
-[image6]: ./examples/placeholder.png "Traffic Sign 3"
-[image7]: ./examples/placeholder.png "Traffic Sign 4"
-[image8]: ./examples/placeholder.png "Traffic Sign 5"
+![image1](https://raw.githubusercontent.com/MehdiAB161/Self-Driving-Car-Nanodegree/master/Traffic-Sign-Classifier/german_traffic_signs/1.png)
+![image2](https://raw.githubusercontent.com/MehdiAB161/Self-Driving-Car-Nanodegree/master/Traffic-Sign-Classifier/german_traffic_signs/2.png)
+![image3](https://raw.githubusercontent.com/MehdiAB161/Self-Driving-Car-Nanodegree/master/Traffic-Sign-Classifier/german_traffic_signs/3.png)
+![image4](https://raw.githubusercontent.com/MehdiAB161/Self-Driving-Car-Nanodegree/master/Traffic-Sign-Classifier/german_traffic_signs/4.png)
+![image5](https://raw.githubusercontent.com/MehdiAB161/Self-Driving-Car-Nanodegree/master/Traffic-Sign-Classifier/german_traffic_signs/5.png)
 
 ## Rubric Points
 ###Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -50,7 +47,11 @@ signs data set:
 
 Here is an exploratory visualization of the data set. It is a bar chart showing the label counts. The dataset is unbalanced, which might biais the prediction.
 
-![Train set labels distribution][image1]
+![Train set labels distribution](https://raw.githubusercontent.com/MehdiAB161/Self-Driving-Car-Nanodegree/master/Traffic-Sign-Classifier/doc_images/train-labels-distribution.png)
+
+The following figure shows the distribution of the pixels for the initial train set :
+
+![Train set pixels distribution](https://raw.githubusercontent.com/MehdiAB161/Self-Driving-Car-Nanodegree/master/Traffic-Sign-Classifier/doc_images/train-pixel-distribution.png)
 
 ###Design and Test a Model Architecture
 
@@ -62,15 +63,15 @@ As a last step, I normalized the image data because the learning speed increases
 
 The following figure shows the distribution of the pixels for the normalized train set.
 
-![Normalized train set pixels distribution][image1]
+![Normalized train set pixels distribution](https://raw.githubusercontent.com/MehdiAB161/Self-Driving-Car-Nanodegree/master/Traffic-Sign-Classifier/doc_images/train-normaliszed-pixels-distribution.png)
 
 
 ####2. Model description
 My final model consisted of the following layers:
 
-| Layer         		|     Description	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| Input         		| 32x32x3 RGB image   							| 
+| Layer         		|     Description	        					|
+|:---------------------:|:---------------------------------------------:|
+| Input         		| 32x32x3 RGB image   							|
 | Convolution 3x3     	| 1x1 stride, same padding, outputs 32x32x64 	|
 | RELU					|												|
 | Max pooling	      	| 2x2 stride,  outputs 16x16x64 				|
@@ -83,21 +84,21 @@ My final model consisted of the following layers:
 | Fully connected		| 98 nodes,   outputs 98x1  					|
 | Fully connected		| 43 nodes,   outputs 43x1						|
 | Softmax				|												|
- 
+
 It is very similar to the LeNet neural network. The differences are :
   * An additional dropout layer after flattening the convolutional layers output
   * Larger fully connected layers in order to capture more features, because the number of possibles classes is higher (43 instead of 10).
 
 ####3. Model training
 
-To train the model, I used the Adam Optimizer. The model ran 50 epochs. 
+To train the model, I used the Adam Optimizer. The model ran 50 epochs.
 
-####4. 
+####4.
 I considered several neural networks architectures, mostly inspired from LeNet architecture. I tried adding several dropout layers, adding an additional convolutional layer, changing the size of the layers.
 
-I also considered learning rate decay, and other optimization algorithms. I also tested several sets of parameters. 
+I also considered learning rate decay, and other optimization algorithms. I also tested several sets of parameters.
 
-Dropout helps achieving a better generalization performance. 
+Dropout helps achieving a better generalization performance.
 
 Since all the pictures represent traffic signs, the class of necessary features for the classification is smaller than the needed class for more complex problems which involve very different object. Therefore, I think a shallow neural network is enough for the discrimination. However, since there are 43 classes, the classification quality improved when I considered wider fully connected layers in comparaison with the LeNet layers. The reason is that LeNet was designed for MNIST which only contains 10 classes.
 
@@ -113,7 +114,7 @@ My final model results were:
 ####1. Five German traffic signs images from the web
 Here are five German traffic signs that I found on the web:
 
-![alt text][image4] ![alt text][image5] ![alt text][image6] 
+![alt text][image4] ![alt text][image5] ![alt text][image6]
 ![alt text][image7] ![alt text][image8]
 
 The images all centered and clear, exvept the images 4 and 5, which are noisy. The difficulty might come from the shapes around the images, which could impact the classifier.
@@ -122,9 +123,9 @@ The images all centered and clear, exvept the images 4 and 5, which are noisy. T
 
 Here are the results of the prediction:
 
-| Image			        |     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| No entry      		| No entry   									| 
+| Image			        |     Prediction	        					|
+|:---------------------:|:---------------------------------------------:|
+| No entry      		| No entry   									|
 | Go straight  			| Keep right 									|
 | Turn left				| Stop											|
 | Speed limit (60km/h)	| Speed limit (60km/h)			 				|
@@ -140,9 +141,9 @@ The contrast of the sign "Turn left" is very similar to "Turn left", which could
 
 For the first image, the model is sure that this is a No entry sign (probability of 0.6), and the image does contain a No entry sign. The top five soft max probabilities were
 
-| Probability         	|     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| 1         			| No entry   									| 
+| Probability         	|     Prediction	        					|
+|:---------------------:|:---------------------------------------------:|
+| 1         			| No entry   									|
 | .00     				| Turn right ahead  							|
 | .00					| Turn left ahead								|
 | .00	      			| No passing					 				|
@@ -151,9 +152,9 @@ For the first image, the model is sure that this is a No entry sign (probability
 
 For the second image, the model is sure that this is a Keep right sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
 
-| Probability         	|     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| 1         			| Keep right   									| 
+| Probability         	|     Prediction	        					|
+|:---------------------:|:---------------------------------------------:|
+| 1         			| Keep right   									|
 | .00     				| End of all speed and passing limits			|
 | .00					| Turn left ahead								|
 | .00	      			| Stop					 			        	|
@@ -161,9 +162,9 @@ For the second image, the model is sure that this is a Keep right sign (probabil
 
 For the third image, the model is relatively sure that this is a Turn left sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
 
-| Probability         	|     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| .77         			| Stop   									    | 
+| Probability         	|     Prediction	        					|
+|:---------------------:|:---------------------------------------------:|
+| .77         			| Stop   									    |
 | .22     				| Right-of-way at the next intersection 		|
 | .01					| Traffic signals								|
 | .00	      			| Priority road					 				|
@@ -171,9 +172,9 @@ For the third image, the model is relatively sure that this is a Turn left sign 
 
 For the fourth image, the model is sure that this is a Speed limit (60km/h) sign (probability of 0.6), and the image does contain a Speed limit (60km/h). The top five soft max probabilities were
 
-| Probability         	|     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| 1         			| Speed limit (60km/h)   						| 
+| Probability         	|     Prediction	        					|
+|:---------------------:|:---------------------------------------------:|
+| 1         			| Speed limit (60km/h)   						|
 | .00     				| Speed limit (50km/h) 							|
 | .00					| Speed limit (80km/h)							|
 | .00	      			| No vehicles					 				|
@@ -181,9 +182,9 @@ For the fourth image, the model is sure that this is a Speed limit (60km/h) sign
 
 For the fifth image, the model is sure that this is a Yield sign (probability of 0.6), and the image does contain a Yield sign. The top five soft max probabilities were
 
-| Probability         	|     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| 1         			| Yield   									    | 
+| Probability         	|     Prediction	        					|
+|:---------------------:|:---------------------------------------------:|
+| 1         			| Yield   									    |
 | .00     				| Turn left ahead 							    |
 | .00					| Ahead only									|
 | .00	      			| Priority road					 				|
