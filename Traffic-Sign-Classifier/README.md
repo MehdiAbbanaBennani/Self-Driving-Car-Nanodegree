@@ -1,4 +1,4 @@
-#**Traffic Sign Recognition**
+# **Traffic Sign Recognition**
 
 
 **Build a Traffic Sign Recognition Project**
@@ -21,18 +21,18 @@ The goals / steps of this project are the following:
 ![image5](https://raw.githubusercontent.com/MehdiAB161/Self-Driving-Car-Nanodegree/master/Traffic-Sign-Classifier/german_traffic_signs/5.png)
 
 ## Rubric Points
-###Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
+### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
 
 ---
-###Writeup / README
+### Writeup / README
 
 ####1. Provide a Writeup / README that includes all the rubric points and how you addressed each one. You can submit your writeup as markdown or pdf. You can use this template as a guide for writing the report. The submission includes the project code.
 
 You're reading it! and here is a link to my [project code](https://github.com/MehdiAB161/Self-Driving-Car-Nanodegree/blob/master/Traffic-Sign-Classifier/Traffic_Sign_Classifier.ipynb)
 
-###Data Set Summary & Exploration
+### Data Set Summary & Exploration
 
-####1. Provide a basic summary of the data set
+#### 1. Provide a basic summary of the data set
 
 I used the pandas library to calculate summary statistics of the traffic
 signs data set:
@@ -43,7 +43,7 @@ signs data set:
 * The shape of a traffic sign image is 32x32x3
 * The number of unique classes/labels in the data set is 43
 
-####2. Include an exploratory visualization of the dataset.
+#### 2. Include an exploratory visualization of the dataset.
 
 Here is an exploratory visualization of the data set. It is a bar chart showing the label counts. The dataset is unbalanced, which might biais the prediction.
 
@@ -53,9 +53,9 @@ The following figure shows the distribution of the pixels for the initial train 
 
 ![Train set pixels distribution](https://raw.githubusercontent.com/MehdiAB161/Self-Driving-Car-Nanodegree/Behavioral-Cloning/Traffic-Sign-Classifier/doc_images/train-pixel-distribution.png)
 
-###Design and Test a Model Architecture
+### Design and Test a Model Architecture
 
-####1. Image Preprocessing
+#### 1. Image Preprocessing
 
 As a first step, I decided to generate additional images using rotations and noise blurring, in order to rebalance the train set. Later, I realized that the increase in the performance was not significant and I considered only the initial data.
 
@@ -66,7 +66,7 @@ The following figure shows the distribution of the pixels for the normalized tra
 ![Normalized train set pixels distribution](https://raw.githubusercontent.com/MehdiAB161/Self-Driving-Car-Nanodegree/Behavioral-Cloning/Traffic-Sign-Classifier/doc_images/train-normaliszed-pixels-distribution.png)
 
 
-####2. Model description
+#### 2. Model description
 My final model consisted of the following layers:
 
 | Layer         		|     Description	        					|
@@ -89,11 +89,11 @@ It is very similar to the LeNet neural network. The differences are :
   * An additional dropout layer after flattening the convolutional layers output
   * Larger fully connected layers in order to capture more features, because the number of possibles classes is higher (43 instead of 10).
 
-####3. Model training
+#### 3. Model training
 
 To train the model, I used the Adam Optimizer. The model ran 50 epochs.
 
-####4. Model selection
+#### 4. Model selection
 I considered several neural networks architectures, mostly inspired from LeNet architecture. I tried adding several dropout layers, adding an additional convolutional layer, changing the size of the layers.
 
 I also considered learning rate decay, and other optimization algorithms. I also tested several sets of parameters.
@@ -109,9 +109,9 @@ My final model results were:
 
 * The test accuracy is 94%, since the data is unseen, it proves that the model works well. However, the train accuracy of 1 suggest that the model is overfitting to the train set.
 
-###Test a Model on New Images
+### Test a Model on New Images
 
-####1. Five German traffic signs images from the web
+#### 1. Five German traffic signs images from the web
 Here are five German traffic signs that I found on the web:
 
 ![image1](https://raw.githubusercontent.com/MehdiAB161/Self-Driving-Car-Nanodegree/master/Traffic-Sign-Classifier/german_traffic_signs/1.png)
