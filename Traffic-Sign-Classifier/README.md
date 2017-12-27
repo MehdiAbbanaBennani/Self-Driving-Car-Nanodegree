@@ -26,7 +26,7 @@ The goals / steps of this project are the following:
 ---
 ### Writeup / README
 
-####1. Provide a Writeup / README that includes all the rubric points and how you addressed each one. You can submit your writeup as markdown or pdf. You can use this template as a guide for writing the report. The submission includes the project code.
+#### 1. Provide a Writeup / README that includes all the rubric points and how you addressed each one. You can submit your writeup as markdown or pdf. You can use this template as a guide for writing the report. The submission includes the project code.
 
 You're reading it! and here is a link to my [project code](https://github.com/MehdiAB161/Self-Driving-Car-Nanodegree/blob/master/Traffic-Sign-Classifier/Traffic_Sign_Classifier.ipynb)
 
