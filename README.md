@@ -35,4 +35,5 @@ So far, I have completed the following projects :
       The goal of the project is classifying traffic signs using Deep Learning.
   
    * Behavioral Cloning
+   
       The goal of the project is to first drive a car on a simulator and record the steerings, then train a model to predict the steerings and drive autonomously on the full circuit.
